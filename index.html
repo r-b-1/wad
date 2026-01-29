@@ -74,9 +74,22 @@
             font-style: italic;
         }
     </style>
+            <script>
+            function updateClock() {
+                var now = new Date();
+                var currentTimeString = now.toLocaleTimeString();
+                document.getElementById("live-clock").textContent = currentTimeString
+            }
+
+            window.onload = updateClock
+            setInterval(updateClock, 1000);
+         </script>
 </head>
+
 <body>
     <div id="content">
+        <p class="align-right"><span id="live-clock" ></span></p>
+
         <p>Hi, my name is Jack. I’m best reached via <a href="mailto:oiendjack@gmail.com">email</a>.</p>
 
         <p>I try to be present, but you will find me aloting a large sum of my time attempting to figure out how things work. Whether its diving into someones code, taking apart electronics, or just watching videos on how others organize and live their lives</p>

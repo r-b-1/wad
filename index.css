@@ -6,3 +6,8 @@
     margin-right: auto;
     width: 30%;
 }
+
+.align-right {
+    display: flex;
+    justify-content: flex-end;
+}
