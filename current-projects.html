@@ -74,12 +74,22 @@
             font-style: italic;
         }
     </style>
+    <script>
+            function updateClock() {
+                var now = new Date();
+                var currentTimeString = now.toLocaleTimeString();
+                document.getElementById("live-clock").textContent = currentTimeString
+            }
+
+            window.onload = updateClock
+            setInterval(updateClock, 1000);
+         </script>
 
   </head>
 
   <body>
     <div id="content">
-      <p class="align-right"></p>
+      <p class="align-right"><span id="live-clock" ></span></p>
 
       <p>This is the page where I'll have some of my projects.</p>
       <p>I have a handful of some that I would consider resume/website worthy for example</p>

@@ -74,10 +74,21 @@
             font-style: italic;
         }
     </style>
+    <script>
+            function updateClock() {
+                var now = new Date();
+                var currentTimeString = now.toLocaleTimeString();
+                document.getElementById("live-clock").textContent = currentTimeString
+            }
+
+            window.onload = updateClock
+            setInterval(updateClock, 1000);
+         </script>
 </head>
 
 <body>
     <div id="content">
+         <p class="align-right"><span id="live-clock" ></span></p>
         <p>Here is a page where I. can put some of my personal interests and hobbies.</p>
         <p>One thing that I reeally want to get done as well is start using Quartz so that I can include my school notes here as well as make some additions to the website more seamlessly.</p>
 
