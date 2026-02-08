@@ -6,13 +6,70 @@
     <title>jack's webpage</title>
     <link rel="stylesheet" href="index.css">
     <script>
+            // Console easter egg
+            console.log("%cHey there! 👋", "font-size: 20px; font-weight: bold;");
+            console.log("%cI see you're curious about how things work. Me too!", "font-size: 14px;");
+            console.log("%cFeel free to poke around. The code is pretty simple - just vanilla HTML/CSS/JS.", "font-size: 12px; color: #666;");
+            console.log("%cIf you have any suggestions or just want to chat, reach out: oiendjack@gmail.com", "font-size: 12px; font-style: italic;");
+
+            // Clock functionality
             function updateClock() {
                 var now = new Date();
                 var currentTimeString = now.toLocaleTimeString();
                 document.getElementById("live-clock").textContent = currentTimeString
             }
 
-            window.onload = updateClock
+            // Typewriter effect
+            function typewriter(element, text, speed = 100) {
+                let i = 0;
+                element.textContent = '';
+
+                function type() {
+                    if (i < text.length) {
+                        element.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(type, speed);
+                    } else {
+                        // Remove cursor after typing is done
+                        const cursor = element.nextElementSibling;
+                        if (cursor && cursor.classList.contains('typewriter-cursor')) {
+                            setTimeout(() => cursor.remove(), 500);
+                        }
+                    }
+                }
+                type();
+            }
+
+            // Fade-in on scroll
+            function setupFadeIn() {
+                const fadeElements = document.querySelectorAll('.fade-in');
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+
+                fadeElements.forEach(el => observer.observe(el));
+            }
+
+            window.onload = function() {
+                updateClock();
+
+                // Start typewriter effect
+                const typewriterElement = document.getElementById('typewriter-text');
+                if (typewriterElement) {
+                    typewriter(typewriterElement, 'Hi, my name is Jack.', 80);
+                }
+
+                // Setup fade-in animations
+                setupFadeIn();
+            }
+
             setInterval(updateClock, 1000);
          </script>
 </head>
@@ -21,24 +78,24 @@
     <div id="content">
         <p class="align-right"><span id="live-clock" ></span></p>
 
-        <p>Hi, my name is Jack. I’m best reached via <a href="mailto:oiendjack@gmail.com">email</a>.</p>
+        <p><span id="typewriter-text" class="typewriter"></span><span class="typewriter-cursor"></span> I'm best reached via <a href="mailto:oiendjack@gmail.com">email</a>.</p>
 
-        <p>I try to be present, but you will find me allotting a large sum of my time attempting to figure out how things work. Whether its diving into someones code, taking apart electronics, or just watching videos on how others organize and live their lives</p>
+        <p class="fade-in">I try to be present, but you will find me allotting a large sum of my time attempting to figure out how things work. Whether its diving into someones code, taking apart electronics, or just watching videos on how others organize and live their lives</p>
 
-        <p>I currently work at a gym but I've been applying to multiple companies in hopes of acquiring an internship for this summer.</p>
+        <p class="fade-in">I currently work at a gym but I've been applying to multiple companies in hopes of acquiring an internship for this summer.</p>
 
-        <p>I want this website to be something big so I want to put more effort and try to make this nicer, kinda like decorating a room. Maybe more like a minimalistic room, more or less but whatever.</p>
+        <p class="fade-in">I want this website to be something big so I want to put more effort and try to make this nicer, kinda like decorating a room. Maybe more like a minimalistic room, more or less but whatever.</p>
 
-        <p>I'll put a picture here, like a little photo in a picture frame in a house!</p>
+        <p class="fade-in">I'll put a picture here, like a little photo in a picture frame in a house!</p>
 
-        <p>Here! I got the perfect one.</p>
+        <p class="fade-in">Here! I got the perfect one.</p>
 
-        <img alt="This is a image of a lake on a sunny day, with reeds and lilypads in the foreground." src="lake_photo_1.jpeg" class="center-image">
+        <img alt="This is a image of a lake on a sunny day, with reeds and lilypads in the foreground." src="lake_photo_1.jpeg" class="center-image fade-in">
 
-        <p>Here is a photo I took on the 4th of July this last year.</p>
+        <p class="fade-in">Here is a photo I took on the 4th of July this last year.</p>
 
-        <p>Also i might make a new page later to include some things I enjoy doing but for now ill just put them here.</p>
-        <p>I spend a lot of time playing this game called <a href="https://www.milkywayidle.com/#">milkywayidle</a> and it is a rabbit hole for sure.</p>
+        <p class="fade-in">Also i might make a new page later to include some things I enjoy doing but for now ill just put them here.</p>
+        <p class="fade-in">I spend a lot of time playing this game called <a href="https://www.milkywayidle.com/#">milkywayidle</a> and it is a rabbit hole for sure.</p>
 
         <!--I can use the footer links below to put my links to social media or other stuff like policies-->
 
