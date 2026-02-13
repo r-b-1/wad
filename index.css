@@ -17,13 +17,6 @@ body {
     margin-right: auto;
 }
 
-h1 {
-    font-weight: 500;
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    display: none;
-}
-
 p {
     margin-bottom: 1.5rem;
     font-size: 1rem;
@@ -55,14 +48,6 @@ a:hover {
     display: flex;
     gap: 1rem;
     opacity: 0.7;
-}
-
-.italic {
-    font-style: italic;
-}
-
-.internal.alias {
-    font-style: italic;
 }
 
 .center-image {
