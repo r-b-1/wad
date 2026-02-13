@@ -62,6 +62,34 @@ a:hover {
     justify-content: flex-end;
 }
 
+/* Sidebar widget */
+.sidebar-widget {
+    position: fixed;
+    right: 2rem;
+    top: 40px;
+    padding: 1rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    max-width: 260px;
+    font-size: 0.85rem;
+}
+
+.sidebar-widget-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+}
+
+@media (max-width: 1200px) {
+    .sidebar-widget {
+        position: static;
+        max-width: 100%;
+        margin: 0 0 1.5rem 0;
+    }
+}
+
 /* Typewriter effect */
 .typewriter {
     display: inline;
