@@ -39,7 +39,7 @@
             </div>
             <div class="tech-tags">
                 <span class="tech-tag">Rust</span>
-                <span class="tech-tag">Tauri</span>
+                <span class="tech-tag">Tauri 2</span>
                 <span class="tech-tag">React 19</span>
                 <span class="tech-tag">TypeScript</span>
                 <span class="tech-tag">Supabase</span>
@@ -49,7 +49,7 @@
                 <li>Built a native macOS desktop app in Tauri (Rust) + React 19 that monitors any on-screen window, runs OCR via the macOS Vision framework, detects question patterns, and dispatches them to GPT-4o mini in under a second.</li>
                 <li>Implemented perceptual hashing (pHash) on a 400ms Tokio background loop to skip unchanged frames, keeping CPU usage low during continuous watch sessions.</li>
                 <li>Engineered streaming OpenAI responses over SSE with exponential backoff + jitter retry for 429/5xx errors, and live web search with per-message inline URL citations.</li>
-                <li>Persisted multi-session chat history in Supabase (PostgreSQL + Storage) with full create, rename, and delete support.</li>
+                <li>Integrated Supabase for user authentication and persisted multi-session chat history (PostgreSQL + Storage) with full create, rename, and delete support.</li>
             </ul>
         </div>
 
@@ -66,7 +66,7 @@
                 <span class="tech-tag">Google Maps API</span>
             </div>
             <ul class="project-bullets">
-                <li>Owned the home screen and item data layer in a 5-person team — built the Firestore item model, live item feed, neighborhood-scoped filtering, search/filter widget, and asset image system with Android path resolution.</li>
+                <li>Owned the home screen and item data layer in a 5-person team — built the Firestore item model, live item feed, neighborhood-scoped filtering, search/filter widget, and asset image system with fallback error handling.</li>
                 <li>Built a JSON-driven runtime theme system using Provider, enabling light/dark/custom themes switchable without app restart.</li>
                 <li>Implemented public/private item description views scoped by ownership, integrated with the borrow scheduling flow.</li>
                 <li>A community lending app similar to Facebook Marketplace — users share tools and resources locally to reduce waste and expand access.</li>
