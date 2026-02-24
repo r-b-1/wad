@@ -1,43 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>jack's webpage</title>
-  <link rel="stylesheet" href="index.css">
-  <script>
-            function updateClock() {
-                var now = new Date();
-                var currentTimeString = now.toLocaleTimeString();
-                document.getElementById("live-clock").textContent = currentTimeString
-            }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jack Oien's software projects — native apps, mobile development, and systems programming.">
+    <title>Jack Oien — Projects</title>
+    <link rel="stylesheet" href="index.css">
+    <script>
+        function updateClock() {
+            var now = new Date();
+            document.getElementById("live-clock").textContent = now.toLocaleTimeString();
+        }
+        window.onload = function() {
+            updateClock();
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+            fadeElements.forEach(el => observer.observe(el));
+        }
+        setInterval(updateClock, 1000);
+    </script>
+</head>
 
-            window.onload = updateClock
-            setInterval(updateClock, 1000);
-         </script>
-
-  </head>
-
-  <body>
+<body>
     <div id="content">
-      <p class="align-right"><span id="live-clock" ></span></p>
+        <p class="align-right"><span id="live-clock"></span></p>
 
-      <p>This is the page where I'll have some of my projects.</p>
+        <p class="section-label">Projects</p>
 
-      <p><strong>Bloc Party</strong> - This was a group project where we had a semester to build an Android application. My group chose to make an app similar to Facebook Marketplace where users could share items in order to give access to tools and resources to more people while also reducing waste.</p>
+        <div class="project-block fade-in">
+            <div class="project-header">
+                <span class="project-title">AI Desktop Chat</span>
+                <a class="project-link" href="https://github.com/r-b-1" target="_blank" rel="noopener">github.com/r-b-1</a>
+                <span class="project-date">2025 – Present</span>
+            </div>
+            <div class="tech-tags">
+                <span class="tech-tag">Rust</span>
+                <span class="tech-tag">Tauri</span>
+                <span class="tech-tag">React 19</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Supabase</span>
+                <span class="tech-tag">OpenAI API</span>
+            </div>
+            <ul class="project-bullets">
+                <li>Built a native macOS desktop app in Tauri (Rust) + React 19 that monitors any on-screen window, runs OCR via the macOS Vision framework, detects question patterns, and dispatches them to GPT-4o mini in under a second.</li>
+                <li>Implemented perceptual hashing (pHash) on a 400ms Tokio background loop to skip unchanged frames, keeping CPU usage low during continuous watch sessions.</li>
+                <li>Engineered streaming OpenAI responses over SSE with exponential backoff + jitter retry for 429/5xx errors, and live web search with per-message inline URL citations.</li>
+                <li>Persisted multi-session chat history in Supabase (PostgreSQL + Storage) with full create, rename, and delete support.</li>
+            </ul>
+        </div>
+
+        <div class="project-block fade-in">
+            <div class="project-header">
+                <span class="project-title">Bloc Party</span>
+                <a class="project-link" href="https://github.com/r-b-1/bloc-party" target="_blank" rel="noopener">github.com/r-b-1/bloc-party</a>
+                <span class="project-date">Fall 2025</span>
+            </div>
+            <div class="tech-tags">
+                <span class="tech-tag">Flutter</span>
+                <span class="tech-tag">Dart</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">Google Maps API</span>
+            </div>
+            <ul class="project-bullets">
+                <li>Owned the home screen and item data layer in a 5-person team — built the Firestore item model, live item feed, neighborhood-scoped filtering, search/filter widget, and asset image system with Android path resolution.</li>
+                <li>Built a JSON-driven runtime theme system using Provider, enabling light/dark/custom themes switchable without app restart.</li>
+                <li>Implemented public/private item description views scoped by ownership, integrated with the borrow scheduling flow.</li>
+                <li>A community lending app similar to Facebook Marketplace — users share tools and resources locally to reduce waste and expand access.</li>
+            </ul>
+        </div>
+
+        <div class="project-block fade-in">
+            <div class="project-header">
+                <span class="project-title">Zork-Style Adventure Engine</span>
+                <span class="project-date">Fall 2023</span>
+            </div>
+            <div class="tech-tags">
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">Git</span>
+                <span class="tech-tag">UML</span>
+            </div>
+            <ul class="project-bullets">
+                <li>Reverse-engineered Zork's terminal mechanics and designed an original world with branching narrative in C++, with a 5-person team.</li>
+                <li>Established documentation standards and introduced structured Git workflow for the team's first collaborative project.</li>
+            </ul>
+        </div>
+
+        <div class="skills-section fade-in">
+            <p class="skills-label">Skills</p>
+            <div class="skills-row"><strong>Languages:</strong> Dart, TypeScript, Rust, Python, Java, C++</div>
+            <div class="skills-row"><strong>Frameworks & Tools:</strong> Flutter, React, Tauri, Vite, Firebase, Supabase, OpenAI API, Google Maps API</div>
+            <div class="skills-row"><strong>Concepts:</strong> REST APIs, SSE Streaming, OCR, OOP, Git, MVC Architecture, Agile/Scrum</div>
+        </div>
 
         <div class="landing-links-container">
             <a href="index.html">about me</a>
-            <a href="personal-hobbies.html">personal hobbies</a>
-            <a href="current-projects.html">current projects</a>
-           
+            <a href="current-projects.html">projects</a>
+            <a href="personal-hobbies.html">hobbies</a>
         </div>
-
 
         <div class="footer-links">
             <a href="mailto:oiendjack@gmail.com">email</a>
+            <a href="https://github.com/r-b-1" target="_blank" rel="noopener">github</a>
+            <a href="https://linkedin.com/in/jack-oien-93aa43369" target="_blank" rel="noopener">linkedin</a>
+            <a href="Feb_2026_Jack_Oien_CV.pdf" target="_blank">resume</a>
         </div>
     </div>
-  </body>
+</body>
 </html>
-

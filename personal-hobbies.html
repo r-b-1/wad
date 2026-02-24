@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>personal hobbies</title>
-        <link rel="stylesheet" href="index.css">
-        <script>
-            function updateClock() {
-                var now = new Date();
-                var currentTimeString = now.toLocaleTimeString();
-                document.getElementById("live-clock").textContent = currentTimeString
-            }
-
-            window.onload = updateClock
-            setInterval(updateClock, 1000);
-         </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jack Oien's personal interests — open source, sports, and other rabbit holes.">
+    <title>Jack Oien — Hobbies</title>
+    <link rel="stylesheet" href="index.css">
+    <script>
+        function updateClock() {
+            var now = new Date();
+            document.getElementById("live-clock").textContent = now.toLocaleTimeString();
+        }
+        window.onload = function() {
+            updateClock();
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+            fadeElements.forEach(el => observer.observe(el));
+        }
+        setInterval(updateClock, 1000);
+    </script>
 </head>
 
 <body>
     <div id="content">
-         <p class="align-right"><span id="live-clock" ></span></p>
+        <p class="align-right"><span id="live-clock"></span></p>
+
         <div class="sidebar-widget">
             <p class="sidebar-widget-title">ISS Orbit Tracker</p>
             <div id="av-orbit">
@@ -33,26 +42,27 @@
             </div>
         </div>
 
-        <p>Here is a page where I can put some of my personal interests and hobbies.</p>
-        <p>One thing that I really want to get done is start using Quartz so that I can include my school notes here as well as make additions to the website more seamlessly.</p>
+        <p class="section-label fade-in">Hobbies & Interests</p>
 
-        <p>As I mentioned on my home page, I like browsing GitHub and finding projects that I find interesting. Here are some that I like and have been testing:</p>
-        <p><strong>py-clash-bot</strong> - A project written in Python with the goal of automating the game Clash Royale. It has functionality to upgrade cards, do card mastery, and even battle other players.</p>
-        <p><strong>OpenClaw</strong> - A really neat open source AI tool that is like having your own version of Jarvis. You can hook it up to many different things such as macOS Reminders or Messages, and you can even chat with it from anywhere using Telegram or Slack.</p>
+        <p class="fade-in">I like browsing GitHub and finding projects that people have actually shipped. A few that caught my attention recently:</p>
 
-        <p>I was originally upset about Darnold leaving the Vikings and making it to the Super Bowl, but he deserved the win. Going from team to team and making a huge comeback in his career was impressive to watch.</p>
+        <p class="fade-in"><strong>OpenClaw</strong> — An open source AI assistant you can hook up to macOS Reminders, Messages, Telegram, and Slack. Basically a self-hosted Jarvis. Interesting architecture for connecting a language model to native OS integrations.</p>
 
-        <p>Just got past the NBA trade deadline - Antetokounmpo didn't get traded but we traded away Rob Dillingham and Leonard Miller, so that's a bit sad. We did get Ayo Dosunmu though.</p>
+        <p class="fade-in">Outside of code I follow the NBA and the Vikings pretty closely. I like to think about process and decision-making as much as the actual games — why teams make the moves they do, how roles develop over a season.</p>
+
+        <p class="fade-in">I also have a real interest in space — the ISS tracker on the right is something I keep around because I find it genuinely cool to know where it is at any given moment.</p>
 
         <div class="landing-links-container">
             <a href="index.html">about me</a>
-            <a href="personal-hobbies.html">personal hobbies</a>
-            <a href="current-projects.html">current projects</a>
+            <a href="current-projects.html">projects</a>
+            <a href="personal-hobbies.html">hobbies</a>
         </div>
-
 
         <div class="footer-links">
             <a href="mailto:oiendjack@gmail.com">email</a>
+            <a href="https://github.com/r-b-1" target="_blank" rel="noopener">github</a>
+            <a href="https://linkedin.com/in/jack-oien-93aa43369" target="_blank" rel="noopener">linkedin</a>
+            <a href="Feb_2026_Jack_Oien_CV.pdf" target="_blank">resume</a>
         </div>
     </div>
 </body>
