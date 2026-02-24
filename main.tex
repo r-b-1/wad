@@ -1,0 +1,135 @@
+\documentclass[letterpaper,10.5pt]{article}
+\usepackage[margin=0.6in, top=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{multicol}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=black,
+  linkcolor=black
+}
+
+\titleformat{\section}{\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{6pt}{4pt}
+
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+% ──────────────────────────────────────────────
+%  HEADER
+% ──────────────────────────────────────────────
+\begin{center}
+  {\LARGE \textbf{Jack Oien}} \\[4pt]
+  \href{mailto:oiendjack@gmail.com}{oiendjack@gmail.com} \;|\;
+  612-757-8523 \;|\;
+  Duluth, MN \\[2pt]
+  \href{https://github.com/r-b-1}{github.com/r-b-1} \;|\;
+  \href{https://linkedin.com/in/jack-oien-93aa43369}{linkedin.com/in/jack-oien-93aa43369} \;|\;
+  \href{https://r-b-1.github.io/wad}{r-b-1.github.io/wad}
+\end{center}
+
+% ──────────────────────────────────────────────
+%  EDUCATION
+% ──────────────────────────────────────────────
+\section{Education}
+
+\textbf{University of Minnesota Duluth} \hfill Expected May 2027 \\
+B.S. Computer Science \\
+\textit{Relevant Coursework:} Data Structures, Software Engineering,
+Computer Architecture, Computer Security, Software Design
+
+% ──────────────────────────────────────────────
+%  WORK EXPERIENCE
+% ──────────────────────────────────────────────
+\section{Work Experience}
+
+\textbf{Planet Fitness} \hfill September 2024 -- Present \\
+\textit{Team Lead, Front Desk}
+\begin{itemize}[leftmargin=1.5em, itemsep=1pt, topsep=3pt]
+  \item Led front desk operations and assisted in onboarding and
+        training new team members.
+  \item Managed member accounts including membership creation,
+        cancellation, billing updates, and personal information changes.
+  \item Handled high-volume customer inquiries and resolved complaints
+        in a fast-paced environment.
+\end{itemize}
+
+\textbf{Great Lakes Roofing and Siding} \hfill July 2025 -- Present \\
+\textit{Field \& Office Assistant}
+\begin{itemize}[leftmargin=1.5em, itemsep=1pt, topsep=3pt]
+  \item Automated customer outreach using a Google Sheets extension,
+        sending 15 follow-up emails per week and recovering the
+        company's review count from 0 to 32 across 107 total reviews.
+  \item Transported materials to and from job sites, prepared
+        worksites before crews arrived, and handled post-job cleanup.
+\end{itemize}
+
+% ──────────────────────────────────────────────
+%  PROJECTS
+% ──────────────────────────────────────────────
+\section{Projects}
+
+\textbf{AI Desktop Chat} \hfill
+\textit{Tauri, Rust, React 19, TypeScript, Supabase, OpenAI} \hfill 2025 -- Present \\
+\href{https://github.com/r-b-1}{github.com/r-b-1}
+\begin{itemize}[leftmargin=1.5em, itemsep=1pt, topsep=3pt]
+  \item Built a native macOS desktop app in Tauri (Rust) + React 19
+        that monitors any on-screen window, runs OCR via the macOS
+        Vision framework, detects question patterns, and dispatches
+        them to GPT-4o mini in under a second.
+  \item Implemented perceptual hashing (pHash) on a 400 ms Tokio
+        background loop to skip unchanged frames, keeping CPU usage
+        low during continuous watch sessions.
+  \item Engineered streaming OpenAI responses over SSE with
+        exponential backoff + jitter retry (429/5xx), and live web
+        search with per-message inline URL citations.
+  \item Integrated Supabase for user authentication and persisted
+        multi-session chat history (PostgreSQL + Storage) with full
+        create, rename, and delete support.
+\end{itemize}
+
+\vspace{4pt}
+
+\textbf{Bloc Party} \hfill
+\textit{Flutter, Dart, Firebase, Google Maps API} \hfill Fall 2025 \\
+\href{https://github.com/r-b-1/bloc-party}{github.com/r-b-1/bloc-party}
+\begin{itemize}[leftmargin=1.5em, itemsep=1pt, topsep=3pt]
+  \item Owned the home screen and item data layer in a 5-person team
+        — built the Firestore item model, live item feed,
+        neighborhood-scoped filtering, search/filter widget, and
+        asset image system with fallback error handling.
+  \item Built a JSON-driven runtime theme system using Provider,
+        enabling light/dark/custom themes switchable without app
+        restart.
+  \item Implemented public/private item description views scoped by
+        ownership and integrated with the borrow scheduling flow.
+\end{itemize}
+
+\vspace{4pt}
+
+\textbf{Zork-Style Adventure Engine} \hfill
+\textit{C++} \hfill Fall 2023 \\
+\begin{itemize}[leftmargin=1.5em, itemsep=1pt, topsep=3pt]
+  \item Reverse-engineered Zork's terminal mechanics and designed an
+        original world with branching narrative in C++, with a
+        5-person team using Git and UML class diagrams.
+  \item Established documentation standards and introduced structured
+        Git workflow for the team's first collaborative project.
+\end{itemize}
+
+% ──────────────────────────────────────────────
+%  SKILLS
+% ──────────────────────────────────────────────
+\section{Skills}
+
+\textbf{Languages:} Dart, TypeScript, Rust, Python, Java, C++ \\
+\textbf{Frameworks \& Tools:} Flutter, React, Tauri, Vite, Firebase,
+Supabase, OpenAI API, Google Maps API \\
+\textbf{Concepts:} REST APIs, SSE Streaming, OCR, OOP, Git,
+MVC Architecture, Agile/Scrum
+
+\end{document}
