@@ -5,65 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Jack Oien's personal interests — open source, sports, and other rabbit holes.">
     <title>Jack Oien — Hobbies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <script>
-        function updateClock() {
-            var now = new Date();
-            document.getElementById("live-clock").textContent = now.toLocaleTimeString();
-        }
-        window.onload = function() {
-            updateClock();
-            const fadeElements = document.querySelectorAll('.fade-in');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('visible');
-                });
-            }, { threshold: 0.1 });
-            fadeElements.forEach(el => observer.observe(el));
-        }
-        setInterval(updateClock, 1000);
-    </script>
+    <script defer src="app.js"></script>
 </head>
-
 <body>
-    <div id="content">
-        <p class="align-right"><span id="live-clock"></span></p>
-        <!-- 
-        <div class="sidebar-widget">
-            <p class="sidebar-widget-title">ISS Orbit Tracker</p>
-            <div id="av-orbit">
-                <script>
-                    var avOrbitProperties = {
-                        size: 'small',
-                        lang: 'en'
-                    };
-                </script>
-                <script src="https://astroviewer.net/widgets/widgets/orbit.js"></script>
+    <div class="page-shell">
+        <header class="topbar fade-in">
+            <div class="brand-lockup">
+                <div class="brand-mark">JO</div>
+                <div class="brand-copy">
+                    <p class="brand-name">Jack Oien</p>
+                    <p class="brand-subtitle">The non-resume side of the same curiosity.</p>
+                </div>
             </div>
-        </div>
-    -->
-        <p class="section-label fade-in">Hobbies & Interests</p>
 
-        <p class="fade-in">I like browsing GitHub and finding projects that people have actually shipped. A few that caught my attention recently:</p>
+            <nav class="nav-links" aria-label="Primary">
+                <a class="nav-link" href="index.html" data-page="index.html">About</a>
+                <a class="nav-link" href="current-projects.html" data-page="current-projects.html">Projects</a>
+                <a class="nav-link" href="personal-hobbies.html" data-page="personal-hobbies.html">Hobbies</a>
+                <a class="nav-link" href="resume.html" data-page="resume.html">Resume</a>
+            </nav>
 
-        <p class="fade-in"><strong>OpenClaw</strong> — An open source AI assistant you can hook up to macOS Reminders, Messages, Telegram, and Slack. Basically a self-hosted Jarvis. Interesting architecture for connecting a language model to native OS integrations.</p>
+            <div class="utility-row">
+                <div class="status-pill">
+                    <span class="status-dot"></span>
+                    <span>Off-hours <span id="live-clock"></span></span>
+                </div>
+                <a class="ghost-pill" href="https://github.com/r-b-1" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </header>
 
-        <p class="fade-in">Outside of code I follow the NBA and the Vikings pretty closely. I like to think about process and decision-making as much as the actual games — why teams make the moves they do, how roles develop over a season.</p>
+        <main class="content-grid">
+            <section class="panel section-panel fade-in delay-1">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-kicker">Hobbies &amp; Interests</p>
+                        <h1 class="section-title">The same pattern shows up everywhere: I like understanding how systems behave.</h1>
+                    </div>
+                    <p class="section-note">Outside of class and project work, I still end up gravitating toward process, structure, and things people genuinely ship.</p>
+                </div>
 
-        <!-- <p class="fade-in">I also have a real interest in space — the ISS tracker on the right is something I keep around because I find it genuinely cool to know where it is at any given moment.</p> -->
+                <div class="interest-grid">
+                    <article class="interest-card">
+                        <div class="card-topline">
+                            <span>Open Source</span>
+                            <span>01</span>
+                        </div>
+                        <h3>Projects built for real use are always the most interesting.</h3>
+                        <p>I like browsing GitHub and finding products that escaped the prototype stage. Seeing what people actually decided to keep, cut, or simplify says a lot about good engineering.</p>
+                    </article>
 
-        <div class="landing-links-container">
-            <a href="index.html">about me</a>
-            <a href="current-projects.html">projects</a>
-            <a href="personal-hobbies.html">hobbies</a>
-            <a href="resume.html">resume</a>
-        </div>
+                    <article class="interest-card">
+                        <div class="card-topline">
+                            <span>Rabbit Hole</span>
+                            <span>02</span>
+                        </div>
+                        <h3>OpenClaw caught my attention recently.</h3>
+                        <p>An open source AI assistant that hooks into macOS Reminders, Messages, Telegram, and Slack. The interesting part isn’t just the idea; it’s the architecture of connecting a model to native operating system workflows.</p>
+                    </article>
 
-        <div class="footer-links">
-            <a href="mailto:oiendjack@gmail.com">email</a>
-            <a href="https://github.com/r-b-1" target="_blank" rel="noopener">github</a>
-            <a href="https://linkedin.com/in/jack-oien-93aa43369" target="_blank" rel="noopener">linkedin</a>
-        </div>
+                    <article class="interest-card">
+                        <div class="card-topline">
+                            <span>Sports</span>
+                            <span>03</span>
+                        </div>
+                        <h3>I follow the NBA and Vikings with the same bias toward decision-making.</h3>
+                        <p>I care about why a team chooses a direction, how roles evolve over a season, and what small structural choices change outcomes over time.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="panel section-panel fade-in delay-2">
+                <div class="feature-split">
+                    <div class="feature-block">
+                        <p class="section-kicker">What I Notice</p>
+                        <h2 class="feature-title">Taste usually comes from paying attention longer than most people do.</h2>
+                        <p class="feature-copy">That applies to codebases, product decisions, basketball rotations, and even which open source tools feel like they were made by people with actual standards.</p>
+                    </div>
+                    <div class="stack">
+                        <div class="quote-strip">
+                            <p>I’m drawn to things that reveal more structure the closer you look.</p>
+                        </div>
+                        <div class="feature-block">
+                            <p class="section-kicker">Elsewhere</p>
+                            <div class="tag-row">
+                                <span class="tag">GitHub deep dives</span>
+                                <span class="tag">Sports strategy</span>
+                                <span class="tag">System design</span>
+                                <span class="tag">Product feel</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="panel footer fade-in">
+            <p class="footer-copy">The hobbies page is still about software in disguise. That’s probably not changing.</p>
+            <div class="footer-links">
+                <a href="index.html">About</a>
+                <a href="current-projects.html">Projects</a>
+                <a href="mailto:oiendjack@gmail.com">Email</a>
+            </div>
+        </footer>
     </div>
 </body>
 </html>

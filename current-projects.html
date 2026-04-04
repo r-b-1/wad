@@ -5,109 +5,165 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Jack Oien's software projects — native apps, mobile development, and systems programming.">
     <title>Jack Oien — Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <script>
-        function updateClock() {
-            var now = new Date();
-            document.getElementById("live-clock").textContent = now.toLocaleTimeString();
-        }
-        window.onload = function() {
-            updateClock();
-            const fadeElements = document.querySelectorAll('.fade-in');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('visible');
-                });
-            }, { threshold: 0.1 });
-            fadeElements.forEach(el => observer.observe(el));
-        }
-        setInterval(updateClock, 1000);
-    </script>
+    <script defer src="app.js"></script>
 </head>
-
 <body>
-    <div id="content">
-        <p class="align-right"><span id="live-clock"></span></p>
-
-        <p class="section-label">Projects</p>
-
-        <div class="project-block fade-in">
-            <div class="project-header">
-                <span class="project-title">AI Desktop Chat</span>
-                <a class="project-link" href="https://github.com/r-b-1" target="_blank" rel="noopener">github.com/r-b-1</a>
-                <span class="project-date">2025 – Present</span>
+    <div class="page-shell">
+        <header class="topbar fade-in">
+            <div class="brand-lockup">
+                <div class="brand-mark">JO</div>
+                <div class="brand-copy">
+                    <p class="brand-name">Jack Oien</p>
+                    <p class="brand-subtitle">Selected work across desktop, mobile, and systems.</p>
+                </div>
             </div>
-            <div class="tech-tags">
-                <span class="tech-tag">Rust</span>
-                <span class="tech-tag">Tauri 2</span>
-                <span class="tech-tag">React 19</span>
-                <span class="tech-tag">TypeScript</span>
-                <span class="tech-tag">Supabase</span>
-                <span class="tech-tag">OpenAI API</span>
-            </div>
-            <ul class="project-bullets">
-                <li>Built a native macOS desktop app in Tauri (Rust) + React 19 that monitors any on-screen window, runs OCR via the macOS Vision framework, detects question patterns, and dispatches them to GPT-4o mini in under a second.</li>
-                <li>Implemented perceptual hashing (pHash) on a 400ms Tokio background loop to skip unchanged frames, keeping CPU usage low during continuous watch sessions.</li>
-                <li>Engineered streaming OpenAI responses over SSE with exponential backoff + jitter retry for 429/5xx errors, and live web search with per-message inline URL citations.</li>
-                <li>Integrated Supabase for user authentication and persisted multi-session chat history (PostgreSQL + Storage) with full create, rename, and delete support.</li>
-            </ul>
-        </div>
 
-        <div class="project-block fade-in">
-            <div class="project-header">
-                <span class="project-title">Bloc Party</span>
-                <a class="project-link" href="https://github.com/r-b-1/bloc-party" target="_blank" rel="noopener">github.com/r-b-1/bloc-party</a>
-                <span class="project-date">Fall 2025</span>
-            </div>
-            <div class="tech-tags">
-                <span class="tech-tag">Flutter</span>
-                <span class="tech-tag">Dart</span>
-                <span class="tech-tag">Firebase</span>
-                <span class="tech-tag">Google Maps API</span>
-            </div>
-            <ul class="project-bullets">
-                <li>Owned the home screen and item data layer in a 5-person team — built the Firestore item model, live item feed, neighborhood-scoped filtering, search/filter widget, and asset image system with fallback error handling.</li>
-                <li>Built a JSON-driven runtime theme system using Provider, enabling light/dark/custom themes switchable without app restart.</li>
-                <li>Implemented public/private item description views scoped by ownership, integrated with the borrow scheduling flow.</li>
-                <li>A community lending app similar to Facebook Marketplace — users share tools and resources locally to reduce waste and expand access.</li>
-            </ul>
-        </div>
+            <nav class="nav-links" aria-label="Primary">
+                <a class="nav-link" href="index.html" data-page="index.html">About</a>
+                <a class="nav-link" href="current-projects.html" data-page="current-projects.html">Projects</a>
+                <a class="nav-link" href="personal-hobbies.html" data-page="personal-hobbies.html">Hobbies</a>
+                <a class="nav-link" href="resume.html" data-page="resume.html">Resume</a>
+            </nav>
 
-        <div class="project-block fade-in">
-            <div class="project-header">
-                <span class="project-title">Zork-Style Adventure Engine</span>
-                <span class="project-date">Fall 2023</span>
+            <div class="utility-row">
+                <div class="status-pill">
+                    <span class="status-dot"></span>
+                    <span>Build log <span id="live-clock"></span></span>
+                </div>
+                <a class="ghost-pill" href="mailto:oiendjack@gmail.com">Contact</a>
             </div>
-            <div class="tech-tags">
-                <span class="tech-tag">C++</span>
-                <span class="tech-tag">Git</span>
-                <span class="tech-tag">UML</span>
+        </header>
+
+        <main class="content-grid">
+            <section class="panel section-panel fade-in delay-1">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-kicker">Projects</p>
+                        <h1 class="section-title">Software that aims to feel native, quick, and useful.</h1>
+                    </div>
+                    <p class="section-note">These projects are where I’ve spent the most time thinking about responsiveness, architecture, and product feel.</p>
+                </div>
+
+                <div class="feature-split">
+                    <div class="feature-block">
+                        <p class="section-kicker">Featured Build</p>
+                        <h2 class="feature-title">AI Desktop Chat</h2>
+                        <p class="feature-copy">A native macOS app in Tauri and React that watches your screen, runs OCR, detects questions, and returns useful answers with low latency.</p>
+                        <div class="tag-row" style="margin-top: 1rem;">
+                            <span class="tag">Rust</span>
+                            <span class="tag">Tauri 2</span>
+                            <span class="tag">React 19</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">Supabase</span>
+                            <span class="tag">OpenAI API</span>
+                        </div>
+                    </div>
+                    <div class="quote-strip">
+                        <p>The kind of work I want more of: product-facing engineering where low-level decisions directly change how the experience feels.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel section-panel fade-in delay-2">
+                <div class="cards-grid">
+                    <article class="project-card">
+                        <div class="project-topline">
+                            <span>2025 – Present</span>
+                            <a href="https://github.com/r-b-1" target="_blank" rel="noopener">GitHub ↗</a>
+                        </div>
+                        <h3>AI Desktop Chat</h3>
+                        <p>Native desktop assistant focused on screen awareness, OCR, and response speed.</p>
+                        <div class="tag-row">
+                            <span class="tag">Rust</span>
+                            <span class="tag">React</span>
+                            <span class="tag">SSE</span>
+                            <span class="tag">OCR</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>Built a native macOS app in Tauri with OCR via the macOS Vision framework and question detection that dispatches to GPT-4o mini in under a second.</li>
+                            <li>Implemented perceptual hashing on a 400ms Tokio loop so unchanged frames are skipped and continuous watch sessions stay efficient.</li>
+                            <li>Engineered streaming responses over SSE with exponential backoff and jitter retry for 429 and 5xx failures, plus inline URL citations for live web results.</li>
+                            <li>Integrated Supabase auth and persisted multi-session chat history with create, rename, and delete flows.</li>
+                        </ul>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-topline">
+                            <span>Fall 2025</span>
+                            <a href="https://github.com/r-b-1/bloc-party" target="_blank" rel="noopener">GitHub ↗</a>
+                        </div>
+                        <h3>Bloc Party</h3>
+                        <p>Community lending app built in a five-person team around local sharing and neighborhood discovery.</p>
+                        <div class="tag-row">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Dart</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Maps</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>Owned the home screen and item data layer, including Firestore models, live feeds, neighborhood filtering, and search.</li>
+                            <li>Built a JSON-driven theme system using Provider so light, dark, and custom themes could switch at runtime without restart.</li>
+                            <li>Implemented public and private item views scoped by ownership and tied them into the borrow scheduling flow.</li>
+                            <li>Focused on making a collaborative student app feel clean and usable instead of “school project” rough.</li>
+                        </ul>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-topline">
+                            <span>Fall 2023</span>
+                            <span>Original engine</span>
+                        </div>
+                        <h3>Zork-Style Adventure Engine</h3>
+                        <p>A text adventure project that sharpened my interest in systems design and collaborative workflows.</p>
+                        <div class="tag-row">
+                            <span class="tag">C++</span>
+                            <span class="tag">Git</span>
+                            <span class="tag">UML</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>Reverse-engineered Zork’s terminal mechanics and designed an original world with branching narrative in a five-person team.</li>
+                            <li>Introduced clearer documentation habits and a structured Git workflow during the team’s first serious collaborative build.</li>
+                        </ul>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-topline">
+                            <span>Toolbox</span>
+                            <span>Working stack</span>
+                        </div>
+                        <h3>Skills and tools I reach for often</h3>
+                        <p>The common thread is building responsive, understandable software with pragmatic tradeoffs.</p>
+                        <div class="tag-row">
+                            <span class="tag">Dart</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">Rust</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Java</span>
+                            <span class="tag">C++</span>
+                            <span class="tag">Flutter</span>
+                            <span class="tag">React</span>
+                            <span class="tag">Tauri</span>
+                            <span class="tag">Supabase</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">OpenAI API</span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer class="panel footer fade-in">
+            <p class="footer-copy">If you want the quickest read on how I think technically, start with the desktop app project and the way it handles latency.</p>
+            <div class="footer-links">
+                <a href="index.html">About</a>
+                <a href="resume.html">Resume</a>
+                <a href="mailto:oiendjack@gmail.com">Email</a>
             </div>
-            <ul class="project-bullets">
-                <li>Reverse-engineered Zork's terminal mechanics and designed an original world with branching narrative in C++, with a 5-person team.</li>
-                <li>Established documentation standards and introduced structured Git workflow for the team's first collaborative project.</li>
-            </ul>
-        </div>
-
-        <div class="skills-section fade-in">
-            <p class="skills-label">Skills</p>
-            <div class="skills-row"><strong>Languages:</strong> Dart, TypeScript, Rust, Python, Java, C++</div>
-            <div class="skills-row"><strong>Frameworks & Tools:</strong> Flutter, React, Tauri, Vite, Firebase, Supabase, OpenAI API, Google Maps API</div>
-            <div class="skills-row"><strong>Concepts:</strong> REST APIs, SSE Streaming, OCR, OOP, Git, MVC Architecture, Agile/Scrum</div>
-        </div>
-
-        <div class="landing-links-container">
-            <a href="index.html">about me</a>
-            <a href="current-projects.html">projects</a>
-            <a href="personal-hobbies.html">hobbies</a>
-            <a href="resume.html">resume</a>
-        </div>
-
-        <div class="footer-links">
-            <a href="mailto:oiendjack@gmail.com">email</a>
-            <a href="https://github.com/r-b-1" target="_blank" rel="noopener">github</a>
-            <a href="https://linkedin.com/in/jack-oien-93aa43369" target="_blank" rel="noopener">linkedin</a>
-        </div>
+        </footer>
     </div>
 </body>
 </html>

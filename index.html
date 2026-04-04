@@ -5,69 +5,179 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Jack Oien — CS student at UMD building native apps, mobile experiences, and systems software.">
     <title>Jack Oien</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <script>
-            // Console easter egg
-            console.log("%cHey there! 👋", "font-size: 20px; font-weight: bold;");
-            console.log("%cI see you're curious about how things work. Me too!", "font-size: 14px;");
-            console.log("%cFeel free to poke around. The code is plain vanilla HTML/CSS/JS.", "font-size: 12px; color: #666;");
-            console.log("%cWant to reach out? oiendjack@gmail.com", "font-size: 12px; font-style: italic;");
-
-            // Clock functionality
-            function updateClock() {
-                var now = new Date();
-                var currentTimeString = now.toLocaleTimeString();
-                document.getElementById("live-clock").textContent = currentTimeString;
-            }
-
-            // Fade-in on scroll
-            function setupFadeIn() {
-                const fadeElements = document.querySelectorAll('.fade-in');
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                        }
-                    });
-                }, { threshold: 0.1 });
-                fadeElements.forEach(el => observer.observe(el));
-            }
-
-            window.onload = function() {
-                updateClock();
-                setupFadeIn();
-            }
-
-            setInterval(updateClock, 1000);
-    </script>
+    <script defer src="app.js"></script>
 </head>
-
 <body>
-    <div id="content">
-        <p class="align-right"><span id="live-clock"></span></p>
+    <div class="page-shell">
+        <header class="topbar fade-in">
+            <div class="brand-lockup">
+                <div class="brand-mark">JO</div>
+                <div class="brand-copy">
+                    <p class="brand-name">Jack Oien</p>
+                    <p class="brand-subtitle">Native apps, systems thinking, and fast software.</p>
+                </div>
+            </div>
 
-        <p class="fade-in">Hi, my name is Jack. I'm a computer science student at the University of Minnesota Duluth, graduating May 2027. I'm best reached via <a href="mailto:oiendjack@gmail.com">email</a>.</p>
+            <nav class="nav-links" aria-label="Primary">
+                <a class="nav-link" href="index.html" data-page="index.html">About</a>
+                <a class="nav-link" href="current-projects.html" data-page="current-projects.html">Projects</a>
+                <a class="nav-link" href="personal-hobbies.html" data-page="personal-hobbies.html">Hobbies</a>
+                <a class="nav-link" href="resume.html" data-page="resume.html">Resume</a>
+            </nav>
 
-        <p class="fade-in">I spend most of my time figuring out how things work — whether that's diving into someone's codebase, taking apart an idea to see what's underneath, or building something from scratch just to understand every piece of it.</p>
+            <div class="utility-row">
+                <div class="status-pill">
+                    <span class="status-dot"></span>
+                    <span>Live now <span id="live-clock"></span></span>
+                </div>
+                <a class="ghost-pill" href="mailto:oiendjack@gmail.com">oiendjack@gmail.com</a>
+            </div>
+        </header>
 
-        <p class="fade-in">Right now I'm working on an AI desktop app in Rust and React that watches your screen, runs OCR, and answers questions in under a second. I'm also actively looking for a summer 2026 internship where I can contribute real work from day one.</p>
+        <main class="content-grid">
+            <section class="panel hero fade-in delay-1">
+                <div class="hero-main">
+                    <div class="eyebrow">Computer Science Student • University of Minnesota Duluth</div>
+                    <h1 class="hero-title">I build <em>fast</em> software for people who notice the details.</h1>
+                    <p class="hero-copy">I’m Jack Oien, graduating in May 2027. I like systems that feel native, tools that respond instantly, and codebases you can actually reason about. Most of my time goes into understanding how things work at the lowest useful level, then shaping that into something elegant.</p>
 
-        <img alt="A lake on a sunny day, with reeds and lily pads in the foreground." src="lake_photo_1.jpeg" class="center-image fade-in">
+                    <div class="hero-actions">
+                        <a class="button-primary" href="current-projects.html">See current work</a>
+                        <a class="button-secondary" href="resume.html">Open resume</a>
+                    </div>
 
-        <p class="fade-in">A photo I took on the 4th of July.</p>
+                    <div class="hero-metrics">
+                        <div class="metric">
+                            <p class="metric-value">2027</p>
+                            <p class="metric-label">Graduation target from UMD</p>
+                        </div>
+                        <div class="metric">
+                            <p class="metric-value">Rust + React</p>
+                            <p class="metric-label">Current build stack for desktop work</p>
+                        </div>
+                        <div class="metric">
+                            <p class="metric-value">2026</p>
+                            <p class="metric-label">Internship search window</p>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="landing-links-container">
-            <a href="index.html">about me</a>
-            <a href="current-projects.html">projects</a>
-            <a href="personal-hobbies.html">hobbies</a>
-            <a href="resume.html">resume</a>
-        </div>
+                <div class="hero-side">
+                    <div class="visual-card">
+                        <div class="photo-frame">
+                            <img src="lake_photo_1.jpeg" alt="A lake on a sunny day, with reeds and lily pads in the foreground.">
+                        </div>
+                        <div class="photo-caption">
+                            <span>Shot by me on the Fourth of July.</span>
+                            <span>Duluth, MN</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <div class="footer-links">
-            <a href="mailto:oiendjack@gmail.com">email</a>
-            <a href="https://github.com/r-b-1" target="_blank" rel="noopener">github</a>
-            <a href="https://linkedin.com/in/jack-oien-93aa43369" target="_blank" rel="noopener">linkedin</a>
-        </div>
+            <section class="panel section-panel fade-in delay-2">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-kicker">Operating Style</p>
+                        <h2 class="section-title">Curious enough to dig, practical enough to ship.</h2>
+                    </div>
+                    <p class="section-note">The work I enjoy most sits between product intuition and low-level implementation.</p>
+                </div>
+
+                <div class="two-column">
+                    <div class="stack">
+                        <article class="story-card">
+                            <div class="card-topline">
+                                <span>How I work</span>
+                                <span>01</span>
+                            </div>
+                            <h3>I like taking ideas apart until the moving parts are obvious.</h3>
+                            <p>That usually means reading through someone else’s architecture, tracing how data actually flows, and rebuilding mental models from first principles before writing code.</p>
+                        </article>
+                        <article class="story-card">
+                            <div class="card-topline">
+                                <span>What matters</span>
+                                <span>02</span>
+                            </div>
+                            <h3>Responsiveness is a feature, not a polish pass.</h3>
+                            <p>I care about latency, fallback behavior, retry logic, and whether the product feels confident under pressure. Good software should make a user trust it quickly.</p>
+                        </article>
+                    </div>
+
+                    <div class="cards-grid">
+                        <article class="mini-card">
+                            <div class="card-topline">
+                                <span>Current focus</span>
+                                <span>OCR</span>
+                            </div>
+                            <h3>AI desktop tooling</h3>
+                            <p>Native workflows, screen understanding, and sub-second answers.</p>
+                        </article>
+                        <article class="mini-card">
+                            <div class="card-topline">
+                                <span>Mindset</span>
+                                <span>Build</span>
+                            </div>
+                            <h3>Strong opinions, testable ideas</h3>
+                            <p>I prefer concrete tradeoffs over vague complexity and I like code that explains itself.</p>
+                        </article>
+                        <article class="mini-card">
+                            <div class="card-topline">
+                                <span>Looking for</span>
+                                <span>2026</span>
+                            </div>
+                            <h3>Summer internship</h3>
+                            <p>I want to contribute meaningful work early and learn in an environment with a high technical bar.</p>
+                        </article>
+                        <article class="mini-card">
+                            <div class="card-topline">
+                                <span>Reach me</span>
+                                <span>Email</span>
+                            </div>
+                            <h3>Direct is best</h3>
+                            <p><a href="mailto:oiendjack@gmail.com">oiendjack@gmail.com</a> is the fastest way to get in touch.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel section-panel fade-in delay-3">
+                <div class="feature-split">
+                    <div class="feature-block">
+                        <p class="section-kicker">Right Now</p>
+                        <h2 class="feature-title">Building an AI desktop app that watches the screen and answers in under a second.</h2>
+                        <p class="feature-copy">Rust on the backend, React on the frontend, OCR in the loop, and a lot of attention to what happens when the system needs to feel instant instead of merely functional.</p>
+                    </div>
+                    <div class="stack">
+                        <div class="quote-strip">
+                            <p>I’m interested in work where software has to earn trust through speed, clarity, and reliability.</p>
+                        </div>
+                        <div class="feature-block">
+                            <p class="section-kicker">Explore</p>
+                            <div class="hero-actions">
+                                <a class="button-secondary mobile-only" href="mailto:oiendjack@gmail.com">Email me</a>
+                                <a class="button-secondary" href="current-projects.html">Projects</a>
+                                <a class="button-secondary" href="personal-hobbies.html">Hobbies</a>
+                                <a class="button-secondary" href="resume.html">Resume</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="panel footer fade-in">
+            <p class="footer-copy">This site is intentionally lean: plain HTML, CSS, and JavaScript, rebuilt with a stronger visual point of view.</p>
+            <div class="footer-links">
+                <a href="mailto:oiendjack@gmail.com">Email</a>
+                <a href="https://github.com/r-b-1" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://linkedin.com/in/jack-oien-93aa43369" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
