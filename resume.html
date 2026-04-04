@@ -133,9 +133,16 @@
                 background: white;
                 color: black;
                 padding: 0;
-                max-width: 100%;
                 font-size: 10.5pt;
                 line-height: 1.4;
+            }
+
+            body::before {
+                display: none;
+            }
+
+            #content {
+                max-width: 100%;
             }
 
             a { color: black; border-bottom: none; }
