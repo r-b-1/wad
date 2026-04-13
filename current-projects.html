@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jack Oien's software projects — native apps, mobile development, and systems programming.">
+    <meta name="description" content="Jack Oien's software projects — web apps, mobile development, and systems programming.">
     <title>Jack Oien — Projects</title>
     <link rel="stylesheet" href="index.css">
     <script>
@@ -33,23 +33,22 @@
 
         <div class="project-block fade-in">
             <div class="project-header">
-                <span class="project-title">AI Desktop Chat</span>
-                <a class="project-link" href="https://github.com/r-b-1" target="_blank" rel="noopener">github.com/r-b-1</a>
-                <span class="project-date">2025 – Present</span>
+                <span class="project-title">Sup Rec</span>
+                <a class="project-link" href="https://github.com/r-b-1/supp-ranker" target="_blank" rel="noopener">github.com/r-b-1/supp-ranker</a>
+                <span class="project-date">2026 – Present</span>
             </div>
             <div class="tech-tags">
-                <span class="tech-tag">Rust</span>
-                <span class="tech-tag">Tauri 2</span>
                 <span class="tech-tag">React 19</span>
-                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Vite</span>
+                <span class="tech-tag">JavaScript</span>
                 <span class="tech-tag">Supabase</span>
-                <span class="tech-tag">OpenAI API</span>
+                <span class="tech-tag">Vercel</span>
+                <span class="tech-tag">PostgreSQL</span>
             </div>
             <ul class="project-bullets">
-                <li>Built a native macOS desktop app in Tauri (Rust) + React 19 that monitors any on-screen window, runs OCR via the macOS Vision framework, detects question patterns, and dispatches them to GPT-4o mini in under a second.</li>
-                <li>Implemented perceptual hashing (pHash) on a 400ms Tokio background loop to skip unchanged frames, keeping CPU usage low during continuous watch sessions.</li>
-                <li>Engineered streaming OpenAI responses over SSE with exponential backoff + jitter retry for 429/5xx errors, and live web search with per-message inline URL citations.</li>
-                <li>Integrated Supabase for user authentication and persisted multi-session chat history (PostgreSQL + Storage) with full create, rename, and delete support.</li>
+                <li>Built a supplement ranking web app in React 19 + Vite that helps users compare products by category, search terms, price, stock status, and ingredient data from a curated catalog.</li>
+                <li>Engineered serverless ranking APIs and product-level aggregation logic to merge variant data, normalize search, and surface cleaner comparisons from a Supabase/PostgreSQL-backed dataset.</li>
+                <li>Added authenticated user submissions and admin review tools with Supabase-based access control, per-user request quotas, and approval workflows for community-contributed supplement updates.</li>
             </ul>
         </div>
 
@@ -68,8 +67,7 @@
             <ul class="project-bullets">
                 <li>Owned the home screen and item data layer in a 5-person team — built the Firestore item model, live item feed, neighborhood-scoped filtering, search/filter widget, and asset image system with fallback error handling.</li>
                 <li>Built a JSON-driven runtime theme system using Provider, enabling light/dark/custom themes switchable without app restart.</li>
-                <li>Implemented public/private item description views scoped by ownership, integrated with the borrow scheduling flow.</li>
-                <li>A community lending app similar to Facebook Marketplace — users share tools and resources locally to reduce waste and expand access.</li>
+                <li>Implemented public/private item description views scoped by ownership and integrated with the borrow scheduling flow.</li>
             </ul>
         </div>
 
@@ -80,8 +78,6 @@
             </div>
             <div class="tech-tags">
                 <span class="tech-tag">C++</span>
-                <span class="tech-tag">Git</span>
-                <span class="tech-tag">UML</span>
             </div>
             <ul class="project-bullets">
                 <li>Reverse-engineered Zork's terminal mechanics and designed an original world with branching narrative in C++, with a 5-person team.</li>
@@ -92,7 +88,7 @@
         <div class="skills-section fade-in">
             <p class="skills-label">Skills</p>
             <div class="skills-row"><strong>Languages:</strong> Dart, TypeScript, Rust, Python, Java, C++</div>
-            <div class="skills-row"><strong>Frameworks & Tools:</strong> Flutter, React, Tauri, Vite, Firebase, Supabase, OpenAI API, Google Maps API</div>
+            <div class="skills-row"><strong>Frameworks &amp; Tools:</strong> Flutter, React, Tauri, Vite, Firebase, Supabase, OpenAI API, Google Maps API</div>
             <div class="skills-row"><strong>Concepts:</strong> REST APIs, SSE Streaming, OCR, OOP, Git, MVC Architecture, Agile/Scrum</div>
         </div>
 
