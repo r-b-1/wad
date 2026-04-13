@@ -72,23 +72,21 @@ Computer Architecture, Computer Security, Software Design
 % ──────────────────────────────────────────────
 \section{Projects}
 
-\textbf{AI Desktop Chat} \hfill
-\textit{Tauri, Rust, React 19, TypeScript, Supabase, OpenAI} \hfill 2025 -- Present \\
-\href{https://github.com/r-b-1}{github.com/r-b-1}
+\textbf{Sup Rec} \hfill
+\textit{React 19, Vite, JavaScript, Supabase, Vercel, PostgreSQL} \hfill 2026 -- Present \\
+\href{https://github.com/r-b-1/supp-ranker}{github.com/r-b-1/supp-ranker}
 \begin{itemize}[leftmargin=1.5em, itemsep=1pt, topsep=3pt]
-  \item Built a native macOS desktop app in Tauri (Rust) + React 19
-        that monitors any on-screen window, runs OCR via the macOS
-        Vision framework, detects question patterns, and dispatches
-        them to GPT-4o mini in under a second.
-  \item Implemented perceptual hashing (pHash) on a 400 ms Tokio
-        background loop to skip unchanged frames, keeping CPU usage
-        low during continuous watch sessions.
-  \item Engineered streaming OpenAI responses over SSE with
-        exponential backoff + jitter retry (429/5xx), and live web
-        search with per-message inline URL citations.
-  \item Integrated Supabase for user authentication and persisted
-        multi-session chat history (PostgreSQL + Storage) with full
-        create, rename, and delete support.
+  \item Built a supplement ranking web app in React 19 + Vite that
+        helps users compare products by category, search terms, price,
+        stock status, and ingredient data from a curated catalog.
+  \item Engineered serverless ranking APIs and product-level
+        aggregation logic to merge variant data, normalize search, and
+        surface cleaner comparisons from a Supabase/PostgreSQL-backed
+        dataset.
+  \item Added authenticated user submissions and admin review tools
+        with Supabase-based access control, per-user request quotas,
+        and approval workflows for community-contributed supplement
+        updates.
 \end{itemize}
 
 \vspace{4pt}
